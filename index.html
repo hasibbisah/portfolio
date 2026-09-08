@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesbah Uddin Hasib — Project Coordination & Development</title>
+<meta name="description" content="Portfolio of Mohammad Mesbah Uddin Hasib — project coordination and development professional working across education, technology, and community development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16283D;
+    --ink-2:#1E3650;
+    --paper:#F7F4EC;
+    --paper-dim:#EFEAdc;
+    --gold:#B8863A;
+    --teal:#3E6E64;
+    --text:#23282E;
+    --text-soft:#5B6169;
+    --paper-text:#E9E6DB;
+    --paper-text-soft:#AFB6BE;
+    --rule: rgba(35,40,46,0.14);
+    --rule-dark: rgba(233,230,219,0.16);
+    --maxw: 760px;
+    --sidebar-w: 260px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    color:inherit;
+  }
+  a{color:inherit;}
+  .layout{
+    display:grid;
+    grid-template-columns: var(--sidebar-w) minmax(0,1fr);
+    min-height:100vh;
+  }
+  /* Sidebar */
+  .sidebar{
+    background:var(--ink);
+    color:var(--paper-text);
+    position:sticky;
+    top:0;
+    height:100vh;
+    padding:44px 32px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .sidebar-top .mark{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-style:italic;
+    color:var(--paper-text);
+    margin-bottom:6px;
+  }
+  .sidebar-top .role{
+    font-size:12.5px;
+    color:var(--paper-text-soft);
+    line-height:1.5;
+    margin-bottom:40px;
+  }
+  nav.index{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  nav.index a{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    text-decoration:none;
+    color:var(--paper-text-soft);
+    font-size:13.5px;
+    padding:9px 0;
+    border-left:2px solid transparent;
+    padding-left:12px;
+    margin-left:-14px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.index a .n{
+    font-variant-numeric: tabular-nums;
+    font-size:11px;
+    color:var(--gold);
+    opacity:.85;
+  }
+  nav.index a:hover, nav.index a.active{
+    color:var(--paper-text);
+    border-left-color:var(--gold);
+  }
+  .sidebar-bottom{
+    font-size:12.5px;
+    color:var(--paper-text-soft);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .sidebar-bottom a{text-decoration:none;}
+  .sidebar-bottom a:hover{color:var(--paper-text);}
+  .sidebar-toggle{display:none;}
+
+  /* Main */
+  main{padding:0 56px 100px;}
+  .section{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-top:96px;
+    scroll-margin-top:32px;
+  }
+  .section + .section{
+    border-top:1px solid var(--rule);
+  }
+  .eyebrow-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:26px;
+  }
+  .eyebrow-row .idx{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    color:var(--gold);
+    font-size:15px;
+  }
+  .eyebrow-row h2{font-size:15px; letter-spacing:.02em; color:var(--text-soft); font-weight:600; font-family:'Inter',sans-serif;}
+
+  /* Hero */
+  #profile{padding-top:64px;}
+  .hero{
+    display:grid;
+    grid-template-columns: 1fr 168px;
+    gap:40px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:44px;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .hero .role-line{
+    font-size:17px;
+    color:var(--teal);
+    font-weight:500;
+    margin-bottom:22px;
+  }
+  .hero .role-line span{color:var(--text-soft); font-weight:400;}
+  .hero p.summary{
+    font-size:16px;
+    color:var(--text-soft);
+    max-width:56ch;
+  }
+  .portrait{
+    width:168px;
+    height:168px;
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .portrait img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(12%);
+  }
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin-top:40px;
+  }
+  .hero-stats .stat{
+    background:var(--paper);
+    padding:20px 18px;
+  }
+  .hero-stats .stat b{
+    display:block;
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .hero-stats .stat span{
+    font-size:12.5px;
+    color:var(--text-soft);
+  }
+
+  /* Timeline (Experience) */
+  .timeline{display:flex; flex-direction:column;}
+  .role-block{
+    display:grid;
+    grid-template-columns: 108px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .role-block:first-child{border-top:none; padding-top:0;}
+  .role-block .when{
+    font-size:12.5px;
+    color:var(--text-soft);
+    padding-top:3px;
+  }
+  .role-block .title{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    color:var(--ink);
+    margin-bottom:2px;
+  }
+  .role-block .org{
+    font-size:13.5px;
+    color:var(--teal);
+    margin-bottom:12px;
+    font-weight:500;
+  }
+  .role-block ul{
+    margin:0; padding:0; list-style:none;
+  }
+  .role-block li{
+    position:relative;
+    padding-left:16px;
+    margin-bottom:8px;
+    font-size:14.5px;
+    color:var(--text-soft);
+  }
+  .role-block li::before{
+    content:"";
+    position:absolute;
+    left:0; top:9px;
+    width:5px; height:5px;
+    background:var(--gold);
+  }
+
+  /* Projects */
+  .project-card{
+    padding:28px 0;
+    border-top:1px solid var(--rule);
+  }
+  .project-card:first-child{border-top:none;}
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .project-head h3{
+    font-size:19px; color:var(--ink);
+  }
+  .project-tag{
+    font-size:11.5px;
+    color:var(--gold);
+    border:1px solid rgba(184,134,58,.4);
+    padding:3px 9px;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .project-card p{
+    color:var(--text-soft);
+    font-size:14.5px;
+    max-width:60ch;
+    margin:0 0 14px;
+  }
+  .impact-row{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .impact-row .imp{font-size:13px; color:var(--text);}
+  .impact-row .imp b{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    color:var(--teal);
+    display:block;
+  }
+
+  /* Competencies */
+  .tag-groups{display:flex; flex-direction:column; gap:22px;}
+  .tag-group h4{
+    font-size:12.5px; color:var(--text-soft); font-weight:600;
+    margin:0 0 10px; font-family:'Inter',sans-serif;
+  }
+  .tag-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag-list span{
+    font-size:13px;
+    padding:7px 12px;
+    background:var(--paper-dim);
+    border:1px solid var(--rule);
+    color:var(--text);
+  }
+
+  /* Education table */
+  .table-wrap{ overflow-x:auto; }
+  table.edu{
+    width:100%;
+    min-width:480px;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  table.edu th{
+    text-align:left;
+    font-size:11.5px;
+    color:var(--text-soft);
+    font-weight:600;
+    padding:0 12px 10px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  table.edu td{
+    padding:14px 12px 14px 0;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  table.edu td.deg{color:var(--ink); font-weight:600; font-family:'Fraunces',serif; font-size:15px;}
+  table.edu td.res{color:var(--teal); font-weight:600; white-space:nowrap;}
+
+  /* Awards / Leadership */
+  .list-plain{list-style:none; margin:0; padding:0;}
+  .list-plain li{
+    padding:16px 0;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:12px;
+    align-items:baseline;
+  }
+  .list-plain li:first-child{border-top:none;}
+  .list-plain .lt{color:var(--ink); font-weight:500;}
+  .list-plain .ld{font-size:13px; color:var(--text-soft);}
+  .list-plain .lwhen{font-size:12.5px; color:var(--text-soft); white-space:nowrap;}
+
+  /* Contact */
+  #contact{padding-bottom:40px;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:8px;
+  }
+  .contact-item{
+    border:1px solid var(--rule);
+    padding:18px;
+    text-decoration:none;
+    color:var(--text);
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .contact-item:hover{border-color:var(--gold);}
+  .contact-item .lbl{font-size:11.5px; color:var(--text-soft);}
+  .contact-item .val{font-size:14.5px; color:var(--ink); font-weight:500; word-break:break-word;}
+  footer.foot{
+    max-width:var(--maxw);
+    margin:60px auto 0;
+    padding:24px 0 0;
+    border-top:1px solid var(--rule);
+    font-size:12.5px;
+    color:var(--text-soft);
+  }
+
+  @media (max-width:880px){
+    .layout{grid-template-columns:minmax(0,1fr);}
+    .sidebar{
+      position:sticky; top:0; height:auto;
+      padding:16px 20px;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      z-index:20;
+    }
+    .sidebar-top .role{display:none;}
+    .sidebar-top .mark{margin:0;}
+    nav.index{
+      display:none;
+      position:fixed;
+      top:56px; left:0; right:0;
+      background:var(--ink);
+      padding:8px 20px 20px;
+      flex-direction:column;
+      max-height:calc(100vh - 56px);
+      overflow:auto;
+    }
+    nav.index.open{display:flex;}
+    .sidebar-bottom{display:none;}
+    .sidebar-toggle{
+      display:inline-flex;
+      background:none;
+      border:1px solid var(--rule-dark);
+      color:var(--paper-text);
+      font-family:'Inter',sans-serif;
+      font-size:12px;
+      padding:7px 12px;
+      cursor:pointer;
+    }
+    main{padding:0 20px 80px;}
+    .hero{grid-template-columns:1fr; }
+    .portrait{width:120px; height:120px; order:-1;}
+    .hero h1{font-size:32px;}
+    .hero-stats{grid-template-columns:1fr;}
+    .role-block{grid-template-columns:1fr; gap:6px;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .fade-in{opacity:1 !important; transform:none !important;}
+  }
+
+  .fade-in{
+    opacity:0;
+    transform:translateY(8px);
+    animation:fadeIn .7s ease forwards;
+  }
+  @keyframes fadeIn{to{opacity:1; transform:none;}}
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="mark">M. Hasib</div>
+        <button class="sidebar-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+      </div>
+      <div class="role">Project Coordination &amp; Development</div>
+      <nav class="index" id="siteNav">
+        <a href="#profile"><span class="n">01</span> Profile</a>
+        <a href="#experience"><span class="n">02</span> Experience</a>
+        <a href="#projects"><span class="n">03</span> Signature Projects</a>
+        <a href="#competencies"><span class="n">04</span> Competencies</a>
+        <a href="#education"><span class="n">05</span> Education</a>
+        <a href="#awards"><span class="n">06</span> Awards &amp; Leadership</a>
+        <a href="#contact"><span class="n">07</span> Contact</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="mailto:mesbahuddinhasib@gmail.com">mesbahuddinhasib@gmail.com</a>
+      <a href="tel:+8801717112226">+880 1717‑112226</a>
+      <a href="https://www.linkedin.com/in/mmhasib" target="_blank" rel="noopener">linkedin.com/in/mmhasib</a>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </aside>
+
+  <main>
+
+    <section class="section" id="profile">
+      <div class="hero fade-in">
+        <div>
+          <h1>Mohammad Mesbah<br>Uddin Hasib</h1>
+          <div class="role-line">Project Coordinator, BRAC IT Service Limited <span>— cross-functional delivery across education, technology &amp; community development</span></div>
+          <p class="summary">I coordinate the projects that sit between operations, technology and the people they're meant to serve. Over seven years I've moved from teaching in underserved classrooms to running governance and UAT cycles for BRAC International's microfinance systems — building structured plans, RAID logs and stakeholder reporting that keep cross-country teams aligned. Along the way I've helped design and deliver ten community-based projects reaching more than 3,000 underprivileged children, including a STEM programme for 400 girls backed by an EMK Center grant.</p>
+        </div>
+        <div class="portrait">
+          <img src="assets/portrait.jpg" alt="Portrait of Mohammad Mesbah Uddin Hasib" loading="eager">
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>7+ yrs</b><span>Project coordination &amp; delivery</span></div>
+        <div class="stat"><b>3,000+</b><span>Underprivileged children reached</span></div>
+        <div class="stat"><b>10</b><span>Community-based projects delivered</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="eyebrow-row"><span class="idx">02</span><h2>Experience</h2></div>
+      <div class="timeline">
+
+        <div class="role-block">
+          <div class="when">Sep 2024 —<br>Present</div>
+          <div>
+            <div class="title">Project Coordinator</div>
+            <div class="org">BRAC IT Service Limited</div>
+            <ul>
+              <li>Coordinate cross-functional IT and product initiatives for BRAC International's microfinance operations, aligning technology, operations and business teams across multiple countries.</li>
+              <li>Support project planning and delivery through structured documentation — project plans, RAID logs, status reporting and milestone tracking — to keep governance visible.</li>
+              <li>Facilitate governance meetings and UAT cycles, managing risks, dependencies and stakeholder communication through to deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role-block">
+          <div class="when">Sep 2022 —<br>Aug 2024</div>
+          <div>
+            <div class="title">Senior Partnership Manager</div>
+            <div class="org">CholPori Technologies Ltd.</div>
+            <ul>
+              <li>Led cross-functional coordination with product and operations teams to implement and scale an ed-tech pilot across 74 partner schools.</li>
+              <li>Supported UAT cycles and end-user training, consolidating feedback to refine product features and adoption.</li>
+              <li>Tracked project performance and stakeholder alignment through structured reporting, data analysis and action planning.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role-block">
+          <div class="when">Nov 2021 —<br>Aug 2022</div>
+          <div>
+            <div class="title">Executive, BYLCx</div>
+            <div class="org">Bangladesh Youth Leadership Center (BYLC)</div>
+            <ul>
+              <li>Conducted global landscape analysis on education and youth skill-development trends, translating insights into structured delivery plans.</li>
+              <li>Designed and coordinated development of MOOCs and online courses aligned with market demand.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role-block">
+          <div class="when">Nov 2018 —<br>Nov 2020</div>
+          <div>
+            <div class="title">Fellow, Educational Leadership Development Program</div>
+            <div class="org">Teach For Bangladesh</div>
+            <ul>
+              <li>Taught underprivileged students using joyful pedagogy and purpose-built learning materials.</li>
+              <li>Conducted six baseline research studies to improve learning competencies, plus three to plan community projects.</li>
+              <li>Designed and implemented three educational projects — STEM, leadership, curriculum — reaching 1,500 beneficiaries.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role-block">
+          <div class="when">Mar 2020 —<br>Present</div>
+          <div>
+            <div class="title">Lead, Monitoring &amp; Budget</div>
+            <div class="org">STEM For Super Girls — EMK Center grant-winning project</div>
+            <ul>
+              <li>Conducted needs-based research and structured project plans addressing STEM participation gaps among girls in Bangladesh.</li>
+              <li>Coordinated and delivered 13 offline and virtual programmes during the pandemic, reaching 1,230+ beneficiaries.</li>
+              <li>Oversaw budgeting and cross-organisational partnerships, ensuring financial accountability and scalable execution.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="eyebrow-row"><span class="idx">03</span><h2>Signature Projects</h2></div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <h3>STEM For Super Girls</h3>
+          <span class="project-tag">EMK Small Grant 2020</span>
+        </div>
+        <p>A needs-research-led programme closing the STEM participation gap for girls in Bangladesh — designed, budgeted and delivered while the pandemic forced everything offline-to-online overnight. Named one of the top projects at the EMK Grant Showcasing 2021.</p>
+        <div class="impact-row">
+          <div class="imp"><b>1,230+</b>beneficiaries reached</div>
+          <div class="imp"><b>13</b>offline &amp; virtual programmes</div>
+          <div class="imp"><b>400</b>girls in the core STEM cohort</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <h3>Ed-tech pilot to scale</h3>
+          <span class="project-tag">CholPori Technologies</span>
+        </div>
+        <p>Took an ed-tech pilot from single-site to a network of partner schools, running UAT and end-user training alongside product teams and folding classroom feedback straight back into the roadmap.</p>
+        <div class="impact-row">
+          <div class="imp"><b>74</b>partner schools</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <h3>Cross-border IT governance</h3>
+          <span class="project-tag">BRAC International</span>
+        </div>
+        <p>Ongoing coordination of technology and product initiatives for microfinance operations spanning multiple countries — structured RAID logs, milestone tracking and UAT governance keeping technical, operational and business teams reading from the same plan.</p>
+      </div>
+    </section>
+
+    <section class="section" id="competencies">
+      <div class="eyebrow-row"><span class="idx">04</span><h2>Competencies</h2></div>
+      <div class="tag-groups">
+        <div class="tag-group">
+          <h4>Delivery &amp; Governance</h4>
+          <div class="tag-list">
+            <span>Project Coordination &amp; Cross-Functional Delivery</span>
+            <span>Planning, Tracking &amp; Risk (RAID) Management</span>
+            <span>Stakeholder Communication &amp; Governance Reporting</span>
+            <span>Budgeting &amp; Financial Oversight</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <h4>Product &amp; Data</h4>
+          <div class="tag-list">
+            <span>IT &amp; Product Development Support (incl. UAT)</span>
+            <span>Monitoring &amp; Evaluation (M&amp;E) &amp; Data Analysis</span>
+            <span>Process Improvement &amp; End-User Training</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <h4>Partnership</h4>
+          <div class="tag-list">
+            <span>Partnership &amp; Institutional Collaboration</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <h4>Tools</h4>
+          <div class="tag-list">
+            <span>JIRA</span><span>Confluence</span><span>Asana</span><span>Trello</span><span>ClickUp</span><span>Slack</span><span>MS Project Professional</span><span>Google Suite</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <h4>Programming</h4>
+          <div class="tag-list">
+            <span>C</span><span>PHP</span><span>HTML/CSS</span><span>Arduino</span><span>Scratch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="eyebrow-row"><span class="idx">05</span><h2>Education</h2></div>
+      <div class="table-wrap"><table class="edu">
+        <thead>
+          <tr><th>Degree</th><th>Institute</th><th>Subject</th><th>Duration</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="deg">PGD</td>
+            <td>BRAC University</td>
+            <td>Educational Leadership &amp; School Improvement</td>
+            <td>2019 – 2020</td>
+            <td class="res">3.90 / 4.00</td>
+          </tr>
+          <tr>
+            <td class="deg">M.Sc</td>
+            <td>Jahangirnagar University</td>
+            <td>Computer Science</td>
+            <td>2018 – 2020</td>
+            <td class="res">3.90 / 4.00</td>
+          </tr>
+          <tr>
+            <td class="deg">B.Sc</td>
+            <td>Daffodil International University</td>
+            <td>Computer Science &amp; Engineering</td>
+            <td>2014 – 2018</td>
+            <td class="res">3.89 / 4.00</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="section" id="awards">
+      <div class="eyebrow-row"><span class="idx">06</span><h2>Awards &amp; Leadership</h2></div>
+      <ul class="list-plain">
+        <li>
+          <div>
+            <div class="lt">Grant Awardee — EMK Small Grant 2020</div>
+            <div class="ld">STEM For Super Girls, one of the top projects at EMK Grant Showcasing 2021</div>
+          </div>
+          <div class="lwhen">2020 – 2021</div>
+        </li>
+        <li>
+          <div><div class="lt">Advanced Certificate for Management Professionals</div><div class="ld">IBA, University of Dhaka</div></div>
+        </li>
+        <li>
+          <div><div class="lt">Campus Finalist, HULT Prize</div></div>
+          <div class="lwhen">Nov – Dec 2017</div>
+        </li>
+        <li>
+          <div><div class="lt">President, Daffodil International University Debating Club</div></div>
+          <div class="lwhen">Jun 2017 – Jun 2018</div>
+        </li>
+        <li>
+          <div><div class="lt">Chief Adjudicator, 4th &amp; 5th DCRC National Debate Competition</div></div>
+          <div class="lwhen">2017 &amp; 2018</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="eyebrow-row"><span class="idx">07</span><h2>Contact</h2></div>
+      <p style="color:var(--text-soft); max-width:56ch; margin-top:0;">Open to project coordination, delivery and partnership roles across education, technology and development. Reach out directly, or find me on LinkedIn.</p>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:mesbahuddinhasib@gmail.com">
+          <span class="lbl">Email</span><span class="val">mesbahuddinhasib@gmail.com</span>
+        </a>
+        <a class="contact-item" href="tel:+8801717112226">
+          <span class="lbl">Phone</span><span class="val">+880 1717‑112226</span>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/mmhasib" target="_blank" rel="noopener">
+          <span class="lbl">LinkedIn</span><span class="val">linkedin.com/in/mmhasib</span>
+        </a>
+        <a class="contact-item" href="https://sites.google.com/view/mesbahuddinhasib/home" target="_blank" rel="noopener">
+          <span class="lbl">Website</span><span class="val">sites.google.com/view/mesbahuddinhasib</span>
+        </a>
+      </div>
+
+      <footer class="foot">
+        Mohammad Mesbah Uddin Hasib · Gandaria, Dhaka, Bangladesh
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    }));
+  }
+
+  // scroll-spy active link
+  const links = document.querySelectorAll('nav.index a');
+  const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+  const setActive = () => {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(s => { if (s && s.offsetTop <= y) current = s; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current.id));
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+
+</body>
+</html>
